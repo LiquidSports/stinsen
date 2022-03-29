@@ -13,7 +13,7 @@ public class TabChild: ObservableObject {
     weak var parent: ChildDismissable?
     public let startingItems: [AnyKeyPath]
     
-    @Published var activeItem: TabChildItem!
+    @Published public var activeItem: TabChildItem!
     
     public internal(set) var allItems: [TabChildItem]!
     
