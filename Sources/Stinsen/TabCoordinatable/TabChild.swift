@@ -14,17 +14,17 @@ public class TabChild: ObservableObject {
     public let startingItems: [AnyKeyPath]
     
     @Published public var activeItem: TabChildItem!
-    @Published public var numberOfTaps: Int!
+    @Published public var tapCount: Int = 0
     
     public internal(set) var allItems: [TabChildItem]!
     
     public var activeTab: Int {
         didSet {
             guard oldValue != activeTab else {
-                numberOfTaps += 1
+                tapCount += 1
                 return
             }
-            numberOfTaps = 1
+            tapCount = 1
             let newItem = allItems[activeTab]
             self.activeItem = newItem
         }
